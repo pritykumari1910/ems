@@ -1,0 +1,62 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link rel="stylesheet" href="css/sty.css">
+    <script type="module" src="js\scripts.js"  defer></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Event Management System</h1>
+        <p>Login with</p>
+        
+        <!-- Login Options -->
+        <div class="login-options">
+            <a href="admin-login.html" class="button">Admin</a>
+            <a href="user-login.html" class="button">User</a>
+            <a href="vendor-login.html" class="button">Vendor</a>
+        </div>
+
+        <!-- Events Section -->
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            
+            <div class="event">
+                <img src="istockphoto-529771791-612x612.jpg" alt="Wedding Celebration">
+                <div class="event-info">
+                    <h3>Wedding Celebration</h3>
+                    <p>A grand celebration of love and togetherness.</p>
+                    <p>A successful marriage requires falling in love many times, always with the same person</p>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="images (2).jpeg" alt="Corporate Conference">
+                <div class="event-info">
+                    <h3>Corporate Conference</h3>
+                    <p>Innovative solutions for tomorrow’s challenges.</p>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="images (1).jpeg" alt="Music Festival">
+                <div class="event-info">
+                    <h3>Music Festival</h3>
+                    <p>Experience the beats of life in an electrifying atmosphere.</p>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <!-- Add Firebase scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+</body>
+</html>

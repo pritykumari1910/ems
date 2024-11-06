@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about(mai).html">About</a>
+        <a href="admin-login.html">Logout</a>
+    </div>
+    
+    <div class="user-list-container">
+        <h2>User List</h2>
+        <ul class="user-list" id="user-list">
+            <li class="header">Name</li>
+            <li class="header">Email</li>
+            <li class="header">Update</li>
+        </ul>
+    </div>
+
+    <script>
+        function displayUsers() {
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const userList = document.getElementById('user-list');
+
+            // Clear the list before adding new items
+            userList.innerHTML = `
+                <li class="header">Name</li>
+                <li class="header">Email</li>
+                <li class="header">Update</li>
+            `;
+
+            if (users.length === 0) {
+                const emptyItem = document.createElement('li');
+                emptyItem.textContent = 'No users found.';
+                emptyItem.setAttribute('colspan', '3'); // span across three columns
+                userList.appendChild(emptyItem);
+            } else {
+                users.forEach((user, index) => {
+                    const nameItem = document.createElement('li');
+                    nameItem.textContent = user.name;
+                    userList.appendChild(nameItem);
+
+                    const emailItem = document.createElement('li');
+                    emailItem.textContent = user.email;
+                    userList.appendChild(emailItem);
+
+                    // Create Update link in the third column
+                    const updateItem = document.createElement('li');
+                    updateItem.innerHTML = `<a href="maintainuser.html?userIndex=${index}">Edit</a>`;
+                    userList.appendChild(updateItem);
+                });
+            }
+        }
+
+        // Call the function to display users when the page loads
+        window.onload = displayUsers;
+    </script>
+</body>
+</html>

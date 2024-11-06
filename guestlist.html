@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest List Management</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            text-align: center;
+        }
+        .guest-list {
+            margin: 20px 0;
+        }
+        .guest-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            background: white;
+        }
+        .guest-item button {
+            margin-left: 10px;
+        }
+        input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Guest List Management</h2>
+    <div>
+        <input type="text" id="guest-name" placeholder="Guest Name" required>
+        <input type="text" id="guest-email" placeholder="Guest Email" required>
+        <button onclick="addGuest()">Add Guest</button>
+    </div>
+    <div class="guest-list" id="guest-list"></div>
+
+    <script src="js/guest.js"></script>
+    <script>
+        let guests = JSON.parse(localStorage.getItem('guests')) || [];
+        displayGuests();
+
+        function displayGuests() {
+            const guestListDiv = document.getElementById('guest-list');
+            guestListDiv.innerHTML = '';
+
+            guests.forEach((guest, index) => {
+                const guestItem = document.createElement('div');
+                guestItem.className = 'guest-item';
+                guestItem.innerHTML = `
+                    <span>${guest.name} (${guest.email})</span>
+                    <div>
+                        <button onclick="updateGuest(${index})">Update</button>
+                        <button onclick="deleteGuest(${index})">Delete</button>
+                    </div>
+                `;
+                guestListDiv.appendChild(guestItem);
+            });
+        }
+
+        function addGuest() {
+            const name = document.getElementById('guest-name').value;
+            const email = document.getElementById('guest-email').value;
+
+            if (!name || !email) {
+                alert('Please enter both name and email');
+                return;
+            }
+
+            guests.push({ name, email });
+            localStorage.setItem('guests', JSON.stringify(guests));
+            displayGuests();
+
+            document.getElementById('guest-name').value = '';
+            document.getElementById('guest-email').value = '';
+        }
+
+        function updateGuest(index) {
+            const name = prompt('Enter new Guest Name:', guests[index].name);
+            const email = prompt('Enter new Guest Email:', guests[index].email);
+
+            if (name !== null && email !== null) {
+                guests[index] = { name, email };
+                localStorage.setItem('guests', JSON.stringify(guests));
+                displayGuests();
+            }
+        }
+
+        function deleteGuest(index) {
+            if (confirm('Are you sure you want to delete this guest?')) {
+                guests.splice(index, 1);
+                localStorage.setItem('guests', JSON.stringify(guests));
+                displayGuests();
+            }
+        }
+    </script>
+</body>
+</html>

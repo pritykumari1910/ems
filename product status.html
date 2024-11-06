@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Status</title>
+    <link rel="stylesheet" href="css/product-status.css">
+</head>
+<body>
+    <div class="product-status-container">
+        <h1>Product Status</h1>
+        <div id="productList" class="product-list"></div>
+    </div>
+
+    <script>
+        // Retrieve and display products from local storage
+        const productList = document.getElementById('productList');
+        const products = JSON.parse(localStorage.getItem('products')) || [];
+
+        products.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+
+            productItem.innerHTML = `
+                <h2>${product.name}</h2>
+                <img src="${product.image}" alt="${product.name}" class="product-image">
+                <p>Price: $${product.price}</p>
+            `;
+            productList.appendChild(productItem);
+        });
+    </script>
+</body>
+</html>

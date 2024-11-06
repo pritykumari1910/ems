@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaintainVendor Dashboard </title>
+    <link rel="stylesheet" href="css\maintainuser.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#logout">Logout</a>
+    </div>
+    
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>MaintainVendor Dashboard</h1>
+        </div>
+        <div class="button-container">
+            <button class="btn" id="membership-btn">Membership</button>
+            <button class="btn" id="user-management-btn">User Management</button>
+        </div>
+        
+        <div id="membership-dashboard" class="hidden">
+            <h2>Membership Management</h2>
+            <input type="text" placeholder="Membership Name">
+            <input type="text" placeholder="Membership Details">
+            <button class="btn">Add Membership</button>
+            <button class="btn">Update Membership</button>
+        </div>
+        
+        <div id="user-management-dashboard" class="hidden">
+            <h2>User Management</h2>
+            <input type="text" placeholder="User Name">
+            <input type="text" placeholder="User Email">
+            <button class="btn">Add User</button>
+            <button class="btn">Update User</button>
+        </div>
+    </div>
+    
+    <script src="js\main.js"></script>
+</body>
+</html>

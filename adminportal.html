@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/adminstyle.css">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script>
+        // Firebase configuration (add your config here)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBloghfhFwhEc4r9qdOTel7CnJ6iz7m9k0",
+            authDomain: "smart-bin-b30d2.firebaseapp.com",
+            databaseURL: "https://smart-bin-b30d2-default-rtdb.firebaseio.com",
+            projectId: "smart-bin-b30d2",
+            storageBucket: "smart-bin-b30d2.appspot.com",
+            messagingSenderId: "23174065932",
+            appId: "1:23174065932:web:2c546fe56c7d9bcc412329",
+            measurementId: "G-ED76D79XWV"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Logout Function
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                // Redirect to login page after successful logout
+                window.location.href = 'login.html';
+            }).catch((error) => {
+                console.error("Error during logout:", error);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="adminportal.html" class="nav-btn">Home</a></li> <!-- Redirect to same page -->
+            <li><a href="about(admin).html" class="nav-btn">About</a></li>
+            <li><a href="admin-login.html" class="nav-btn logout" onclick="logout()">Logout</a></li> <!-- Logout and redirect -->
+        </ul>
+    </nav>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+        <!-- Main Dashboard Content -->
+        <div class="main-dashboard">
+            <h1 class="welcome-admin">Welcome Admin</h1>
+
+            <div class="button-container">
+                <button class="dashboard-button" onclick="window.location.href='maintainuser.html'">Maintain User</button>
+                <button class="dashboard-button" onclick="window.location.href='maintainve.html'">Maintain Vendor</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Admin Sign-Up</title>
+     <link rel="stylesheet" href="css/styles.css">
+     <script type="module" src="js/adml.js" defer></script>
+     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+ </head>
+ <body>
+     <div class="container">
+         <h1>Admin Sign-Up</h1>
+         <form id="admin-signup-form">
+             <input type="text" id="admin-name" placeholder="Name" required>
+             <input type="email" id="admin-username" placeholder="Email" required>
+             <input type="password" id="admin-password" placeholder="Password" required>
+             
+             <!-- Dropdown for Category -->
+             <div class="dropdown">
+                 <button type="button" class="dropdown-button">Select Category</button>
+                 <div class="dropdown-content">
+                     <a href="#">Category 1</a>
+                     <a href="#">Category 2</a>
+                     <a href="#">Category 3</a>
+                 </div>
+             </div>
+ 
+             <button type="submit">Sign Up</button> <!-- Button type set to submit -->
+         </form>
+         <a href="index.html" class="button">Back to Home</a>
+     </div>
+ </body>
+ </html>
+ 

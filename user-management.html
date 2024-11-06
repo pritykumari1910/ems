@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="css/maintainuser.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="about(mai).html">About</a>
+        <a href="admin-login.html">Logout</a>
+    </div>
+    
+    <div class="dashboard-container">
+        <h2>User Management</h2>
+        <input type="text" id="user-name" placeholder="User Name" required>
+        <input type="text" id="user-email" placeholder="User Email" required>
+        <button class="btn" onclick="addUser()">Add User</button>
+        <button class="btn" onclick="updateUser()">Update User</button>
+    </div>
+    
+    <script>
+        // Retrieve user index to update
+        const urlParams = new URLSearchParams(window.location.search);
+        const userIndex = urlParams.get('userIndex');
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        if (userIndex !== null) {
+            // If updating a user, populate the input fields
+            document.getElementById('user-name').value = users[userIndex].name;
+            document.getElementById('user-email').value = users[userIndex].email;
+        }
+
+        function addUser() {
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+            
+            if (name && email) {
+                let users = JSON.parse(localStorage.getItem('users')) || [];
+                users.push({ name, email });
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                // Redirect to list page
+                window.location.href = '/userlist.html';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function updateUser() {
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+
+            if (userIndex !== null) {
+                if (name && email) {
+                    users[userIndex] = { name, email };
+                    localStorage.setItem('users', JSON.stringify(users));
+                    
+                    // Redirect to list page
+                    window.location.href = '/userlist.html';
+                } else {
+                    alert('Please fill in all fields.');
+                }
+            } else {
+                alert('No user selected for update.');
+            }
+        }
+    </script>
+</body>
+</html>

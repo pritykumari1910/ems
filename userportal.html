@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive User Portal Dashboard</title>
+    <link rel="stylesheet" href="css/style(userP).css">
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Centered Welcome Message -->
+        <header class="welcome-header">
+            <h1>Welcome to the User Portal</h1>
+        </header>
+
+        <nav class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <button class="nav-btn">Vendor</button>
+                    <div class="dropdown-content">
+                        <a href="https://en.wikipedia.org/wiki/Catering" id="catering" target="_blank">Catering</a>
+                        <a href="https://en.wikipedia.org/wiki/Floristry" id="florist" target="_blank">Florist</a>
+                        <a href="https://en.wikipedia.org/wiki/Decoration" id="decoration" target="_blank">Decoration</a>
+                        <a href="https://en.wikipedia.org/wiki/Lighting" id="lighting" target="_blank">Lighting</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="nav-btn">Cart</button>
+                    <div class="dropdown-content">
+                        <a href="https://example.com/payment" id="payment" target="_blank">Payment</a>
+                        <a href="https://example.com/total-amount" id="total-amount" target="_blank">Total Amount</a>
+                        <a href="https://example.com/cancel" id="cancel" target="_blank">Cancel</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="nav-btn">Guest List</button>
+                    <div class="dropdown-content">
+                        <a href="/guestlist.html" id="update" target="_blank">Update</a>
+                        <a href="/guestlist.html" id="delete" target="_blank">Delete</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <button class="nav-btn">Order List</button>
+                    <div class="dropdown-content">
+                        <a href="/status_checker.html" id="status" target="_blank">Check Status</a>
+                    </div>
+                </li>
+
+                <li><button class="nav-btn logout-btn" id="logoutBtn">Logout</button></li>
+            </ul>
+        </nav>
+
+        <!-- Image Added to Body -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlWYFVsXSWmESlRJPcLiGFLHuf6SHnfHg-gg&s" alt="Decorative Image" class="decorative-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5K3MGU0tId3kTq2jyiEF631AyhJmGPz78CQ&s" alt="Decorative Image" class="decorative-image">
+
+
+
+    </div>
+
+    <!-- Modal Popup for Logout Confirmation -->
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Are you sure you want to logout?</p>
+            <button id="confirmLogout">Yes, Logout</button>
+            <button id="cancelLogout">Cancel</button>
+        </div>
+    </div>
+
+    <script src="js/script(user).js"></script>
+</body>
+
+</html>

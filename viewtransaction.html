@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Transactions</title>
+    <link rel="stylesheet" href="css/view-transaction.css">
+</head>
+<body>
+    <div class="transaction-container">
+        <h1>Transaction History</h1>
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Date</th>
+                    <th>Product Name</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="transactionList">
+                <!-- Transaction rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <button class="nav-button" onclick="location.href='add-item-dashboard.html'">Add New Item</button>
+        <button class="nav-button" onclick="location.href='index.html'">Logout</button>
+    </div>
+
+    <script>
+        // Sample transaction data
+        const transactions = [
+            { id: 'TRX001', date: '2024-11-01', product: 'Product A', amount: '$20.00', status: 'Completed' },
+            { id: 'TRX002', date: '2024-11-02', product: 'Product B', amount: '$15.50', status: 'Pending' },
+            { id: 'TRX003', date: '2024-11-03', product: 'Product C', amount: '$30.00', status: 'Cancelled' },
+            // Add more transactions as needed
+        ];
+
+        const transactionList = document.getElementById('transactionList');
+
+        // Function to render transactions
+        transactions.forEach(transaction => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${transaction.id}</td>
+                <td>${transaction.date}</td>
+                <td>${transaction.product}</td>
+                <td>${transaction.amount}</td>
+                <td>${transaction.status}</td>
+            `;
+            transactionList.appendChild(row);
+        });
+    </script>
+</body>
+</html>
